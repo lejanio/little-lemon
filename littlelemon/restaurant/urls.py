@@ -1,6 +1,7 @@
 from django.urls import path, include
 from .views import sayHello, index, MenuItemsView, SingleMenuItemView, BookingViewSet
 from rest_framework.routers import DefaultRouter
+from rest_framework.authtoken.views import obtain_auth_token
 
 router = DefaultRouter()
 router.register(r'tables', BookingViewSet, basename='booking')
@@ -12,5 +13,6 @@ urlpatterns = [
     
     path('booking/', include(router.urls)),
     path('hello/', sayHello, name='sayHello'),
+    path('api-token-auth/', obtain_auth_token),
     # path('menu/', MenuView.as_view(), name='menu_view'),
 ]
