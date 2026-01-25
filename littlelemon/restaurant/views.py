@@ -22,7 +22,7 @@ class UserViewSet(viewsets.ModelViewSet):
    serializer_class = UserSerializer
    permission_classes = [IsAuthenticated] 
    
-@permission_classes([IsAuthenticated])    
+# @permission_classes([IsAuthenticated])    
 class MenuItemsView(generics.ListCreateAPIView):
     queryset = MenuItem.objects.all()
     serializer_class = MenuItemsSerializer
