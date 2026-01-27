@@ -14,5 +14,4 @@ urlpatterns = [
     path('booking/', include(router.urls)),
     path('hello/', sayHello, name='sayHello'),
     path('api-token-auth/', obtain_auth_token),
-    # path('menu/', MenuView.as_view(), name='menu_view'),
 ]

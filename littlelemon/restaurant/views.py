@@ -22,7 +22,6 @@ class UserViewSet(viewsets.ModelViewSet):
    serializer_class = UserSerializer
    permission_classes = [IsAuthenticated] 
    
-# @permission_classes([IsAuthenticated])    
 class MenuItemsView(generics.ListCreateAPIView):
     queryset = MenuItem.objects.all()
     serializer_class = MenuItemsSerializer
@@ -37,20 +36,3 @@ class BookingViewSet(viewsets.ViewSet):
         items = Booking.objects.all()
         serializer = BookingSerializer(items, many=True)
         return Response(serializer.data)
-
-
-
-# Class defined using APIView
-    
-# class MenuView(APIView):
-#     def get(self, request):
-#         items = MenuItem.objects.all()
-#         serializer = MenuItemsSerializer(items, many=True)
-#         return Response(serializer.data)
-    
-#     def post(self, request):
-#         serializer = MenuItemsSerializer(data=request.data)
-        
-#         if serializer.is_valid():
-#             serializer.save()
-#             return Response({"status": "success", "data": serializer.data})
